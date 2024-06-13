@@ -7,8 +7,12 @@ environment:
   sdk: '>=3.4.1 <4.0.0'
 
 dependencies:
+  authentication_repository:
+    path: packages/authentication_repository
   flutter:
     sdk: flutter
+  user_repository:
+    path: packages/user_repository
 
 dev_dependencies:
   flutter_test:
