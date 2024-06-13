@@ -9,8 +9,12 @@ environment:
 dependencies:
   authentication_repository:
     path: packages/authentication_repository
+  bloc: ^8.1.0
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.1
+  formz: ^0.6.0
   user_repository:
     path: packages/user_repository
 
