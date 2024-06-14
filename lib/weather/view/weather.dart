@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 class WeatherPage extends StatelessWidget {
   const WeatherPage({super.key});
 
+  static Route<void> route() {
+    return MaterialPageRoute(builder: (_) => const WeatherPage());
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
