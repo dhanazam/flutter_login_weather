@@ -5,6 +5,7 @@ sealed class AuthenticationEvent {
   const AuthenticationEvent();
 }
 
+// This class wont be used outside of the AuthenticationBloc
 final class _AuthenticationStatusChanged extends AuthenticationEvent {
   const _AuthenticationStatusChanged(this.status);
 
