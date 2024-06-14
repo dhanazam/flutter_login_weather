@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_weather_flutter/login/login.dart';
+import 'package:login_weather_flutter/login/view/login.dart';
 
 void main() {
   runApp(const MainApp());
