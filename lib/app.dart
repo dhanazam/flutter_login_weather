@@ -2,7 +2,9 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_weather_flutter/login/bloc/authentication_bloc.dart';
+import 'package:login_weather_flutter/login/view/login.dart';
 import 'package:login_weather_flutter/splash/view/splash.dart';
+import 'package:login_weather_flutter/weather/view/weather.dart';
 import 'package:user_repository/user_repository.dart';
 
 class App extends StatefulWidget {
@@ -64,9 +66,9 @@ class _AppViewState extends State<AppView> {
           listener: (context, state) {
             switch (state.status) {
               case AuthenticationStatus.authenticated:
-                _navigator.pushAndRemoveUntil<void>(newRoute, predicate);
+                _navigator.pushAndRemoveUntil<void>(WeatherPage.route(), (route) => false);
               case AuthenticationStatus.unauthenticated:
-                _navigator.pushAndRemoveUntil<void>(newRoute, predicate);
+                _navigator.pushAndRemoveUntil<void>(LoginPage.route(), (route) => false);
               case AuthenticationStatus.unknown:
                 break;
             }
