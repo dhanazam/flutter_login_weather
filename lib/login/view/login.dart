@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -58,4 +59,12 @@ class UsernameField extends StatelessWidget {
       )
     );
   }
+}
+
+class _LoginButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LoginBloc>(builder: builder)
+  }
+  
 }
