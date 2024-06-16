@@ -19,8 +19,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   final AuthenticationRepository _authenticationRepository;
 
-  
-
   FutureOr<void> _onUsernameChanged(LoginUsernameChanged event, Emitter<LoginState> emit) {
     final username = Username.dirty(event.username);
     emit(

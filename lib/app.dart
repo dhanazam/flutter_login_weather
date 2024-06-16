@@ -1,7 +1,7 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:login_weather_flutter/login/bloc/authentication_bloc.dart';
+import 'package:login_weather_flutter/authentication/bloc/authentication_bloc.dart';
 import 'package:login_weather_flutter/login/view/login.dart';
 import 'package:login_weather_flutter/splash/view/splash.dart';
 import 'package:login_weather_flutter/weather/view/weather.dart';
@@ -27,6 +27,7 @@ class _AppState extends State<App> {
 
   @override
   void dispose() {
+    _authenticationRepository.dispose();
     super.dispose();
   }
 
