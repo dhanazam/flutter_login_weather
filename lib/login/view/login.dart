@@ -1,5 +1,8 @@
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login_weather_flutter/login/bloc/login_bloc.dart';
+import 'package:login_weather_flutter/login/view/login_form.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -10,61 +13,20 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.blue,
       body: Center(
-        child: Column (
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            UsernameField(),
-            SizedBox(height: 20),
-            PasswordField()
-          ]
+        child: BlocProvider(
+          create: (context) {
+            debugPrint('create LoginBloc');
+            return LoginBloc(authenticationRepository: RepositoryProvider.of<AuthenticationRepository>(context),);
+          },
+          child: const LoginForm(),
         )
       )
     );
   }
 }
 
-class PasswordField extends StatelessWidget {
-  const PasswordField({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox(
-      width: 250,
-      child: TextField(
-        obscureText: true,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          labelText: 'Password',
-        )
-      )
-    );
-  }
-}
  
-class UsernameField extends StatelessWidget {
-  const UsernameField({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox(
-      width: 250,
-      child: TextField(
-        decoration: InputDecoration(
-          border: OutlineInputBorder(),
-          labelText: 'Username',
-        )
-      )
-    );
-  }
-}
-
-class _LoginButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<LoginBloc>(builder: builder)
-  }
-  
-}
