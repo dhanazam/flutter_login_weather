@@ -7,6 +7,11 @@ part 'weather.g.dart';
 
 enum TemperatureUnits { fahrenheit, celcius }
 
+extension TemperatureUnitsX on TemperatureUnits {
+  bool get isFahrenheit => this == TemperatureUnits.fahrenheit;
+  bool get isCelsius => this == TemperatureUnits.celcius;
+}
+
 @JsonSerializable()
 class Temperature extends Equatable {
   const Temperature({required this.value});
