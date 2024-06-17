@@ -16,9 +16,12 @@ dependencies:
   flutter_bloc: ^8.1.1
   google_fonts: ^4.0.0
   hydrated_bloc: ^9.0.0
+  json_annotation: ^4.8.1
   formz: ^0.6.0
   user_repository:
     path: packages/user_repository
+  weather_repository:
+    path: packages/weather_repository
 
 dev_dependencies:
   flutter_test:

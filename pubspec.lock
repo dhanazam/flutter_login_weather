@@ -278,10 +278,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_fonts
-      sha256: "2776c66b3e97c6cdd58d1bd3281548b074b64f1fd5c8f82391f7456e38849567"
+      sha256: "6b6f10f0ce3c42f6552d1c70d2c28d764cf22bb487f50f66cca31dcd5194f4d6"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.5"
+    version: "4.0.4"
   graphs:
     dependency: transitive
     description:
@@ -302,10 +302,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: "761a297c042deedc1ffbb156d6e2af13886bb305c2a343a4d972504cd67dd938"
+      sha256: "5895291c13fa8a3bd82e76d5627f69e0d85ca6a30dcac95c4ea19a5d555879c2"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.1"
+    version: "0.13.6"
   http_multi_server:
     dependency: transitive
     description:
@@ -347,7 +347,7 @@ packages:
     source: hosted
     version: "0.7.1"
   json_annotation:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: json_annotation
       sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
@@ -434,6 +434,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  open_meteo_api:
+    dependency: transitive
+    description:
+      path: "packages/open_meteo_api"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   package_config:
     dependency: transitive
     description:
@@ -694,6 +701,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  weather_repository:
+    dependency: "direct main"
+    description:
+      path: "packages/weather_repository"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   web:
     dependency: transitive
     description:
