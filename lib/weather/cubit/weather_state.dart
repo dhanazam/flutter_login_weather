@@ -25,7 +25,18 @@ final class WeatherState extends Equatable {
 
   Map<String, dynamic> toJson() => _$WeatherStateToJson(this);
 
+  WeatherState copyWith({
+    WeatherStatus? status,
+    TemperatureUnits? temperatureUnits,
+    Weather? weather,
+  }) {
+    return WeatherState(
+      status: status ?? this.status,
+      temperatureUnits: temperatureUnits ?? this.temperatureUnits,
+      weather: weather ?? this.weather,
+    );
+  }
+
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [status, temperatureUnits, weather];
 }
