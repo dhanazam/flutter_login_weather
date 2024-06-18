@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_weather_flutter/authentication/bloc/authentication_bloc.dart';
+import 'package:login_weather_flutter/search/view/search_page.dart';
 import 'package:login_weather_flutter/weather/weather.dart';
 import 'package:login_weather_flutter/weather/widgets/widget.dart';
 import 'package:weather_repository/weather_repository.dart';
@@ -73,8 +74,11 @@ class _WeatherViewState extends State<WeatherView> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.search, semanticLabel: 'Search'),
-        onPressed: () => context.read<AuthenticationBloc>().add(AuthenticationLogoutRequested())
-        
+        onPressed: () async {
+          final city = await Navigator.of(context).push(SearchPage.route());
+          if(!context.mounted) return;
+          await context.read<WeatherCubit>().fetchWeather(city);
+        }
       ),
     );
   } 
