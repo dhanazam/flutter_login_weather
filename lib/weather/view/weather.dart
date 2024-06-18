@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_weather_flutter/search/view/search_page.dart';
+import 'package:login_weather_flutter/settings_page/settings_page.dart';
 import 'package:login_weather_flutter/weather/weather.dart';
 import 'package:login_weather_flutter/weather/widgets/widget.dart';
 import 'package:weather_repository/weather_repository.dart';
@@ -48,6 +49,18 @@ class _WeatherViewState extends State<WeatherView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.of(context).push<void>(
+                SettingsPage.route(context.read<WeatherCubit>()),
+              );
+            },
+          )
+        ],
+      ),
       body: Center(
         child: BlocBuilder<WeatherCubit, WeatherState>(
           builder: (BuildContext context, WeatherState state) {
