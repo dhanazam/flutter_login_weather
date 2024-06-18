@@ -17,6 +17,8 @@ class Temperature extends Equatable {
   const Temperature({required this.value});
 
   factory Temperature.fromJson(Map<String, dynamic> json) => _$TemperatureFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TemperatureToJson(this);
   
   final double value;
   
