@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_weather_flutter/authentication/bloc/authentication_bloc.dart';
 import 'package:login_weather_flutter/weather/weather.dart';
+import 'package:login_weather_flutter/weather/widgets/widget.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 class WeatherPage extends StatefulWidget {
@@ -56,7 +57,13 @@ class _WeatherViewState extends State<WeatherView> {
               case WeatherStatus.loading:
                 return const CircularProgressIndicator();
               case WeatherStatus.success:
-                return const Text('Success');
+                return WeatherPopulated(
+                  weather: state.weather, 
+                  units: state.temperatureUnits, 
+                  onRefresh: () {
+                    return context.read<WeatherCubit>().refreshWeather();
+                  }
+                );
               case WeatherStatus.failure:
               default:
                 return const Text('Something went wrong!');
@@ -65,23 +72,10 @@ class _WeatherViewState extends State<WeatherView> {
         )
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => LogoutButton
+        child: const Icon(Icons.search, semanticLabel: 'Search'),
+        onPressed: () => context.read<AuthenticationBloc>().add(AuthenticationLogoutRequested())
+        
       ),
     );
-  }
-  
-}
-
-class LogoutButton extends StatelessWidget {
-  const LogoutButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        context.read<AuthenticationBloc>().add(AuthenticationLogoutRequested());
-      },
-      child: const Text('Logout'),
-    );
-  }
+  } 
 }
